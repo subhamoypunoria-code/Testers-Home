@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="60%" stop-color="#140502"/>
+      <stop offset="100%" stop-color="#1a0803"/>
+    </linearGradient>
+    <radialGradient id="glowRed" cx="50%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#ff2a2a" stop-opacity="0.35"/>
+      <stop offset="40%" stop-color="#ff5c1a" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <linearGradient id="helmetGrad" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#2a2a2a"/>
+      <stop offset="50%" stop-color="#111111"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </linearGradient>
+    <linearGradient id="visorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff5c1a" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#ff2a2a" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#900000" stop-opacity="0.8"/>
+    </linearGradient>
+    <filter id="blurSoft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="25"/>
+    </filter>
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#bgGrad)"/>
+  <rect width="800" height="1000" fill="url(#glowRed)"/>
+
+  <!-- Ambient glow orbs -->
+  <ellipse cx="250" cy="220" rx="180" ry="220" fill="#ff1a1a" opacity="0.12" filter="url(#blurSoft)"/>
+  <ellipse cx="580" cy="750" rx="200" ry="260" fill="#ff5c1a" opacity="0.08" filter="url(#blurSoft)"/>
+
+  <!-- Helmet main shape -->
+  <g transform="translate(140, 140) scale(0.65)">
+    <path d="M300 80 
+             C460 80 560 200 560 380 
+             C560 560 500 720 380 820 
+             C320 866 280 866 220 820 
+             C100 720 40 560 40 380 
+             C40 200 140 80 300 80 Z" 
+          fill="url(#helmetGrad)" stroke="rgba(255,60,30,0.25)" stroke-width="3"/>
+
+    <!-- Cranial ridge -->
+    <path d="M300 80 C330 140 340 220 340 300 L260 300 C260 220 270 140 300 80 Z" 
+          fill="#1a1a1a" stroke="rgba(255,60,30,0.2)" stroke-width="2"/>
+
+    <!-- Visor -->
+    <path d="M120 360 
+             C120 280 200 240 300 240 
+             C400 240 480 280 480 360 
+             C480 460 440 540 300 560 
+             C160 540 120 460 120 360 Z" 
+          fill="url(#visorGrad)" filter="url(#neonGlow)"/>
+
+    <!-- Visor inner detail -->
+    <path d="M160 360 C160 300 220 275 300 275 C380 275 440 300 440 360 C440 420 410 480 300 495 C190 480 160 420 160 360 Z" 
+          fill="#000000" opacity="0.6"/>
+
+    <!-- Cheek armor plates -->
+    <path d="M80 420 C80 420 140 440 160 520 L100 560 C80 500 70 460 80 420 Z" 
+          fill="#151515" stroke="rgba(255,60,30,0.15)" stroke-width="2"/>
+    <path d="M520 420 C520 420 460 440 440 520 L500 560 C520 500 530 460 520 420 Z" 
+          fill="#151515" stroke="rgba(255,60,30,0.15)" stroke-width="2"/>
+
+    <!-- Jaw line -->
+    <path d="M180 620 C220 700 260 740 300 750 C340 740 380 700 420 620" 
+          fill="none" stroke="rgba(255,60,30,0.3)" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Tech accents -->
+    <line x1="120" y1="260" x2="80" y2="220" stroke="#ff5c1a" stroke-width="2" opacity="0.7" filter="url(#neonGlow)"/>
+    <line x1="480" y1="260" x2="520" y2="220" stroke="#ff5c1a" stroke-width="2" opacity="0.7" filter="url(#neonGlow)"/>
+    <circle cx="80" cy="220" r="5" fill="#ff5c1a" filter="url(#neonGlow)"/>
+    <circle cx="520" cy="220" r="5" fill="#ff5c1a" filter="url(#neonGlow)"/>
+
+    <!-- Circuit lines -->
+    <path d="M300 80 L300 180 M220 300 L160 300 L140 340 M380 300 L440 300 L460 340" 
+          stroke="rgba(255,90,26,0.25)" stroke-width="1.5" fill="none"/>
+    <circle cx="300" cy="180" r="4" fill="#ff5c1a" opacity="0.8"/>
+    <circle cx="140" cy="340" r="3" fill="#ff5c1a" opacity="0.6"/>
+    <circle cx="460" cy="340" r="3" fill="#ff5c1a" opacity="0.6"/>
+  </g>
+
+  <!-- Floating particles -->
+  <circle cx="120" cy="180" r="2" fill="#ff5c1a" opacity="0.5"/>
+  <circle cx="680" cy="300" r="3" fill="#ff2a2a" opacity="0.4"/>
+  <circle cx="150" cy="780" r="2.5" fill="#ff5c1a" opacity="0.35"/>
+  <circle cx="700" cy="680" r="2" fill="#ff2a2a" opacity="0.45"/>
+  <circle cx="90" cy="520" r="1.5" fill="#ff5c1a" opacity="0.5"/>
+</svg>
